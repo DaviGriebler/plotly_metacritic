@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0f172a;
+            color: #f8fafc;
+            font-family: Inter, Arial, sans-serif;
+        }
+
+        main {
+            max-width: 1500px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 28px;
+            letter-spacing: -0.8px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 32px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .metric-card,
+        .chart-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 14px;
+        }
+
+        .metric-card {
+            padding: 24px;
+        }
+
+        .metric-label {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .metric-value {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .chart-card {
+            min-width: 0;
+            padding: 12px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 950px) {
+            .metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .charts {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            main {
+                padding: 18px;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Steam Analytics</h1>
+        <p class="subtitle">Game performance and review insights</p>
+
+        <section class="metrics">
+            $cards
+        </section>
+
+        <section class="charts">
+            $charts
+        </section>
+    </main>
+</body>
+
+</html>
