@@ -17,6 +17,11 @@ df_yearscore = df.groupby('year', as_index=False).agg(
     {'metacritic_score':'mean'}
 )
 
+# Creating Preço x Metacritic Score DataFrame
+columns = ['name','price','metacritic_score','year']
+df_pricescore = df[columns].copy()
+df_pricescore
+
 # Converting Genres column, transforming from text to python lists
 # Normalizing values to avoid empty or duplicated categories
 def convert_genres(value):
@@ -105,12 +110,14 @@ fig_yearscore = px.line(
     title='Average Metacritic Score by Year'
 )
 
-# Bar Chart
-fig_yearscore_bar = px.bar(
-    df_yearscore,
-    x='year',
+# Scatter Plot
+fig_pricescore = px.scatter(
+    df_pricescore,
+    x='price',
     y='metacritic_score',
-    title='Average Metacritic Score by Year'
+    hover_name='name',
+    hover_data=['year'],
+    title='Relationship Between Game Price and Metacritic Score'
 )
 
 # Horizontal Bar Chart
@@ -158,7 +165,7 @@ cards = "".join(
     for label, value in metrics.items()
 )
 
-figures = [fig_yearscore, fig_yearscore_bar, fig_genrescore, fig_genrereview]
+figures = [fig_yearscore, fig_pricescore, fig_genrescore, fig_genrereview]
 
 for fig in figures:
 # Apply a consistent theme to all charts
