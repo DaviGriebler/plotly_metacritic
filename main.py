@@ -25,6 +25,20 @@ df_pricescore
 # Converting Genres column, transforming from text to python lists
 # Normalizing values to avoid empty or duplicated categories
 def convert_genres(value):
+    """
+    Convert genre values into a clean list of unique strings.
+
+    Handles missing values, string representations of lists, and
+    iterable collections. Removes empty entries, extra whitespace,
+    and duplicates while preserving the original order.
+
+    Args:
+        value: Genre data as a string, list, tuple, or set.
+
+    Returns:
+        list: A list of cleaned, unique genre names.
+              Returns an empty list for invalid or missing values.
+    """
     if pd.isna(value): return []
 
     if isinstance(value, list): genres = value
